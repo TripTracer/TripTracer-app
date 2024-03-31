@@ -1,13 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
-export default function Layout({children}: {children: React.ReactNode}) {
-    return (
-        <View style={styles.container}>
-            {children}
-            <StatusBar style='auto' />
-        </View>
-    );
+export default function Layout() {
+  return <View style={styles.container}></View>;
 }
 
 const styles = StyleSheet.create({
