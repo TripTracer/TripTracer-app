@@ -1,65 +1,58 @@
 import {
-  Material3Scheme,
-  Material3Theme,
-  useMaterial3Theme,
-} from '@pchmn/expo-material3-theme';
-import { createContext, useContext } from 'react';
-import { useColorScheme } from 'react-native';
-import {
   MD3DarkTheme,
   MD3LightTheme,
-  MD3Theme,
-  Provider as PaperProvider,
-  ProviderProps,
-  useTheme,
+  PaperProvider,
+  adaptNavigationTheme,
 } from 'react-native-paper';
-
-type Material3ThemeProviderProps = {
-  theme: Material3Theme;
-  updateTheme: (sourceColor: string) => void;
-  resetTheme: () => void;
-};
-
-const Material3ThemeProviderContext =
-  createContext<Material3ThemeProviderProps>({} as Material3ThemeProviderProps);
-
+import { PreferencesContext } from './PreferencesContext';
+import { useCallback, useMemo, useState } from 'react';
+import {
+  DarkTheme as NavigationDarkTheme,
+  DefaultTheme as NavigationDefaultTheme,
+} from '@react-navigation/native';
 export default function ThemeProvider({
   children,
-  sourceColor,
-  fallbackSourceColor,
-  ...otherProps
-}: ProviderProps & { sourceColor?: string; fallbackSourceColor?: string }) {
-  const colorScheme = useColorScheme();
-
-  const { theme, updateTheme, resetTheme } = useMaterial3Theme({
-    sourceColor,
-    fallbackSourceColor,
+}: {
+  children: React.ReactNode;
+}) {
+  const { LightTheme, DarkTheme } = adaptNavigationTheme({
+    reactNavigationLight: NavigationDefaultTheme,
+    reactNavigationDark: NavigationDarkTheme,
   });
 
-  const paperTheme =
-    colorScheme === 'dark'
-      ? { ...MD3DarkTheme, colors: theme.dark }
-      : { ...MD3LightTheme, colors: theme.light };
+  const CombinedDefaultTheme = {
+    ...MD3LightTheme,
+    ...LightTheme,
+    colors: {
+      ...MD3LightTheme.colors,
+      ...LightTheme.colors,
+    },
+  };
+  const CombinedDarkTheme = {
+    ...MD3DarkTheme,
+    ...DarkTheme,
+    colors: {
+      ...MD3DarkTheme.colors,
+      ...DarkTheme.colors,
+    },
+  };
+  const [isThemeDark, setIsThemeDark] = useState(false);
+  let paperTheme = isThemeDark ? CombinedDefaultTheme : CombinedDarkTheme;
+  const toggleTheme = useCallback(() => {
+    return setIsThemeDark(!isThemeDark);
+  }, [isThemeDark]);
+
+  const preferences = useMemo(
+    () => ({
+      toggleTheme,
+      isThemeDark,
+    }),
+    [toggleTheme, isThemeDark],
+  );
 
   return (
-    <Material3ThemeProviderContext.Provider
-      value={{ theme, updateTheme, resetTheme }}
-    >
-      <PaperProvider theme={paperTheme} {...otherProps}>
-        {children}
-      </PaperProvider>
-    </Material3ThemeProviderContext.Provider>
+    <PreferencesContext.Provider value={preferences}>
+      <PaperProvider theme={paperTheme}>{children}</PaperProvider>
+    </PreferencesContext.Provider>
   );
 }
-
-export function useMaterial3ThemeContext() {
-  const ctx = useContext(Material3ThemeProviderContext);
-  if (!ctx) {
-    throw new Error(
-      'useMaterial3ThemeContext must be used inside ThemeProvider',
-    );
-  }
-  return ctx;
-}
-
-export const useAppTheme = useTheme<MD3Theme & { colors: Material3Scheme }>;
