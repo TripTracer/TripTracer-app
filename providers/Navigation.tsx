@@ -1,20 +1,27 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/Home';
+import SettingsScreen from '../screens/Settings';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SettingsStackScreen from '../components/settingsScreen/SettingsStack';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function NavigationProvider() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen
           name='Home'
           component={HomeScreen}
           options={{ title: 'Home' }}
         />
-      </Stack.Navigator>
+        <Tab.Screen
+          name='SettingsStack'
+          component={SettingsStackScreen}
+          options={{ title: 'Settings' }}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, useColorScheme, Appearance } from 'react-native';
 import { Button, Switch, useTheme } from 'react-native-paper';
 import { PreferencesContext } from '../providers/PreferencesContext';
+import ThemeChanger from '../components/settingsScreen/ThemeChanger';
 
-const HomeScreen: React.FC = ({ navigation }) => {
+const SettingsScreen: React.FC = ({ navigation }) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
   // react-native-paper theme is always in sync
@@ -18,18 +19,19 @@ const HomeScreen: React.FC = ({ navigation }) => {
         backgroundColor: theme.colors.primary,
       }}
     >
-      <Text>Home Screen</Text>
+      <Text>Settings Screen</Text>
       <Text>useColorScheme2(): {colorScheme2}</Text>
       <Text>useColorScheme(): {colorScheme}</Text>
+      <ThemeChanger />
       <Button
         icon='camera'
         mode='contained'
-        onPress={() => navigation.navigate('Settings')}
+        onPress={() => navigation.navigate('Details')}
       >
-        Go to Settings
+        Go to Details
       </Button>
     </View>
   );
 };
 
-export default HomeScreen;
+export default SettingsScreen;
