@@ -3,6 +3,7 @@ import {
   MD3LightTheme,
   PaperProvider,
   adaptNavigationTheme,
+  configureFonts,
 } from 'react-native-paper';
 import { PreferencesContext } from './PreferencesContext';
 import { useCallback, useMemo, useState } from 'react';
@@ -10,11 +11,16 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
+
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const fontConfig = {
+    fontFamily: 'Roboto',
+  };
+
   const { LightTheme, DarkTheme } = adaptNavigationTheme({
     reactNavigationLight: NavigationDefaultTheme,
     reactNavigationDark: NavigationDarkTheme,
@@ -23,6 +29,7 @@ export default function ThemeProvider({
   const CombinedDefaultTheme = {
     ...MD3LightTheme,
     ...LightTheme,
+    fonts: configureFonts({ config: fontConfig }),
     colors: {
       ...MD3LightTheme.colors,
       ...LightTheme.colors,
@@ -31,13 +38,17 @@ export default function ThemeProvider({
   const CombinedDarkTheme = {
     ...MD3DarkTheme,
     ...DarkTheme,
+    fonts: configureFonts({ config: fontConfig }),
     colors: {
       ...MD3DarkTheme.colors,
       ...DarkTheme.colors,
     },
   };
+
   const [isThemeDark, setIsThemeDark] = useState(false);
-  let paperTheme = isThemeDark ? CombinedDefaultTheme : CombinedDarkTheme;
+
+  let paperTheme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
+  
   const toggleTheme = useCallback(() => {
     return setIsThemeDark(!isThemeDark);
   }, [isThemeDark]);
