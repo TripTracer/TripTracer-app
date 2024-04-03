@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import ThemeProvider from './providers/Theme';
-import NavigationProvider from './providers/Navigation';
+import NavigationProvider from './providers/navigation/NavigationProvider';
 import { StatusBar } from 'expo-status-bar';
 import QueryProvider from './providers/ReactQuery';
 
