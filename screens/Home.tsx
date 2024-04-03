@@ -1,14 +1,11 @@
 import React from 'react';
 import { View, Text, useColorScheme, Appearance } from 'react-native';
 import { Button, useTheme } from 'react-native-paper';
-import { PreferencesContext } from '../providers/PreferencesContext';
 
-const HomeScreen: React.FC = ({ navigation }) => {
+const HomeScreen = ({ navigation }: any) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
-  // react-native-paper theme is always in sync
   const theme = useTheme();
-  const { toggleTheme, isThemeDark } = React.useContext(PreferencesContext);
   return (
     <View
       style={{
@@ -24,7 +21,7 @@ const HomeScreen: React.FC = ({ navigation }) => {
       <Button
         icon='camera'
         mode='contained'
-        onPress={() => navigation.navigate('Settings')}
+        onPress={() => navigation.navigate('SettingsStack')}
       >
         Go to Settings
       </Button>
