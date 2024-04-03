@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/Home';
-import SettingsScreen from '../screens/Settings';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SettingsStackScreen from '../components/settingsScreen/SettingsStack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 function NavigationProvider() {
   return (

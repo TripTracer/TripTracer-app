@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, useColorScheme, Appearance } from 'react-native';
-import { Button, Switch, useTheme } from 'react-native-paper';
+import { Button, useTheme } from 'react-native-paper';
 import { PreferencesContext } from '../providers/PreferencesContext';
 
 const HomeScreen: React.FC = ({ navigation }) => {

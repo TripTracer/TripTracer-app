@@ -3,8 +3,19 @@ import { View, Text, useColorScheme, Appearance } from 'react-native';
 import { Button, Switch, useTheme } from 'react-native-paper';
 import { PreferencesContext } from '../providers/PreferencesContext';
 import ThemeChanger from '../components/settingsScreen/ThemeChanger';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-const SettingsScreen: React.FC = ({ navigation }) => {
+type RootStackParamList = {
+  Details: undefined;
+};
+
+type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Details'>;
+
+interface Props {
+  navigation: SettingsScreenNavigationProp;
+}
+
+const SettingsScreen: React.FC<Props> = ({ navigation }) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
   // react-native-paper theme is always in sync
