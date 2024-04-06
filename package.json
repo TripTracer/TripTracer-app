@@ -21,6 +21,7 @@
     "@react-navigation/stack": "^6.3.29",
     "@react-querybuilder/native": "^7.1.0",
     "@tanstack/react-query": "^5.28.14",
+    "@tanstack/react-query-devtools": "^5.29.0",
     "@types/jest": "^29.5.12",
     "expo": "~49.0.15",
     "expo-status-bar": "~1.6.0",

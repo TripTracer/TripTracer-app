@@ -1,24 +1,15 @@
-import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
-import {
-  CompositeScreenProps,
-  NavigatorScreenParams,
-} from '@react-navigation/native';
-import type {
-  StackNavigationProp,
-  StackScreenProps,
-} from '@react-navigation/stack';
+import { NavigatorScreenParams } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export type BottomTabParamList = {
+export type RootTabParamList = {
   Home: undefined;
-  SettingsStack: StackScreenProps<SettingsStackParamList>;
+  SettingsStack: NavigatorScreenParams<SettingsStackParamList>;
 };
-export type HomeScreenProps = BottomTabScreenProps<BottomTabParamList, 'Home'>;
 
 export type SettingsStackParamList = {
   Settings: undefined;
   Details: undefined;
 };
-export type SettingsScreenProp = CompositeScreenProps<
-  BottomTabScreenProps<BottomTabParamList, 'SettingsStack'>,
-  StackScreenProps<SettingsStackParamList>
->;
+
+export type HomeScreenNavigationProps = NativeStackScreenProps<RootTabParamList, 'Home'>;
+export type SettingsScreenNavigationProps = NativeStackScreenProps<SettingsStackParamList, 'Settings'>;
