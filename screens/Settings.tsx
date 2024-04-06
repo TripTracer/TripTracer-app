@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, useColorScheme, Appearance } from 'react-native';
 import { Button, useTheme } from 'react-native-paper';
 import ThemeChanger from '../components/settingsScreen/ThemeChanger';
+import { SettingsScreenNavigationProps } from '../utils/types';
 
-const SettingsScreen = ({ navigation }: any) => {
+const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
   const theme = useTheme();

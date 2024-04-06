@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, useColorScheme, Appearance } from 'react-native';
 import { Button, useTheme } from 'react-native-paper';
+import { HomeScreenNavigationProps } from '../utils/types';
 
-const HomeScreen = ({ navigation }: any) => {
+const HomeScreen = ({ navigation }: HomeScreenNavigationProps) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
   const theme = useTheme();
@@ -21,7 +22,11 @@ const HomeScreen = ({ navigation }: any) => {
       <Button
         icon='camera'
         mode='contained'
-        onPress={() => navigation.navigate('SettingsStack')}
+        onPress={() =>
+          navigation.navigate('SettingsStack', {
+            screen: 'Settings',
+          })
+        }
       >
         Go to Settings
       </Button>
