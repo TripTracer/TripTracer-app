@@ -10,9 +10,12 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts"]
+          "fonts": [
+            "./assets/fonts"
+          ]
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "splash": {
       "image": "./assets/splash.png",
