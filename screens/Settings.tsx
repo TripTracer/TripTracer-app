@@ -4,15 +4,13 @@ import { Button, useTheme, Text } from 'react-native-paper';
 import ThemeChanger from '../components/settingsScreen/ThemeChanger';
 import { SettingsScreenNavigationProps } from '../utils/types';
 import { useTranslation } from 'react-i18next';
+import LanguageChanger from '../components/settingsScreen/LanguageChanger';
 const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();
   const theme = useTheme();
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
   return (
     <View
       style={{
@@ -27,12 +25,7 @@ const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
       <Text>useColorScheme2(): {colorScheme2}</Text>
       <Text>useColorScheme(): {colorScheme}</Text>
       <ThemeChanger />
-      <Button mode='contained' onPress={() => changeLanguage('fa')}>
-        fa
-      </Button>
-      <Button mode='contained' onPress={() => changeLanguage('en')}>
-        en
-      </Button>
+      <LanguageChanger />
       <Text>{t('hello')}</Text>
       <Button
         icon='camera'
