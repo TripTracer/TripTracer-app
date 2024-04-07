@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, useColorScheme, Appearance } from 'react-native';
-import { Button, useTheme } from 'react-native-paper';
+import { View, useColorScheme, Appearance } from 'react-native';
+import { Button, useTheme, Text } from 'react-native-paper';
 import { HomeScreenNavigationProps } from '../utils/types';
 
 const HomeScreen = ({ navigation }: HomeScreenNavigationProps) => {
@@ -16,7 +16,7 @@ const HomeScreen = ({ navigation }: HomeScreenNavigationProps) => {
         backgroundColor: theme.colors.primary,
       }}
     >
-      <Text>Home Screen</Text>
+      <Text>صفحه اصلی</Text>
       <Text>useColorScheme2(): {colorScheme2}</Text>
       <Text>useColorScheme(): {colorScheme}</Text>
       <Button
