@@ -1,15 +1,14 @@
 import { useColorScheme, Appearance } from 'react-native';
 import { SegmentedButtons, useTheme } from 'react-native-paper';
-import { PreferencesContext } from '../../providers/PreferencesContext';
+import { ColorSchemeContext } from '../../utils/PreferencesContext';
 import { useContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { use } from 'i18next';
 
 const ThemeChanger = () => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme3 = useColorScheme();
   const theme = useTheme();
-  const { colorScheme, setColorScheme } = useContext(PreferencesContext);
+  const { colorScheme, setColorScheme } = useContext(ColorSchemeContext);
   const [value, setValue] = useState(colorScheme);
 
   const onValueChange = async (value: string) => {
