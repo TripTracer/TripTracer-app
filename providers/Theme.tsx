@@ -11,14 +11,28 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
+import { Vazirmatn_900Black, useFonts } from '@expo-google-fonts/vazirmatn';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [fontsLoaded, fontError] = useFonts({
+    Vazirmatn_900Black,
+  });
+
+  console.log('fontsLoaded: ', fontsLoaded);
+  console.log('fontError: ', fontError);
+  if (fontsLoaded || fontError) {
+    SplashScreen.hideAsync();
+  }
+
   const fontConfig = {
-    fontFamily: 'Roboto',
+    fontFamily: 'Vazirmatn_900Black',
   };
 
   const { LightTheme, DarkTheme } = adaptNavigationTheme({
@@ -48,7 +62,7 @@ export default function ThemeProvider({
   const [isThemeDark, setIsThemeDark] = useState(false);
 
   let paperTheme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
-  
+
   const toggleTheme = useCallback(() => {
     return setIsThemeDark(!isThemeDark);
   }, [isThemeDark]);
@@ -60,10 +74,14 @@ export default function ThemeProvider({
     }),
     [toggleTheme, isThemeDark],
   );
-
-  return (
-    <PreferencesContext.Provider value={preferences}>
-      <PaperProvider theme={paperTheme}>{children}</PaperProvider>
-    </PreferencesContext.Provider>
-  );
+  if (!fontsLoaded && !fontError) {
+    console.log('fontError: ', fontError);
+    return null;
+  } else {
+    return (
+      <PreferencesContext.Provider value={preferences}>
+        <PaperProvider theme={paperTheme}>{children}</PaperProvider>
+      </PreferencesContext.Provider>
+    );
+  }
 }
