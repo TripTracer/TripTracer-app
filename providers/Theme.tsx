@@ -19,9 +19,7 @@ import {
 } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  ColorSchemeContext,
-} from '../utils/PreferencesContext';
+import { ColorSchemeContext } from '../utils/PreferencesContext';
 import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
 
 SplashScreen.preventAutoHideAsync();
@@ -33,6 +31,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
   if (fontsLoaded || fontError) {
     SplashScreen.hideAsync();
   }
+
   const fontConfig = {
     fontFamily: 'Vazirmatn_900Black',
   };
