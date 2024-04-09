@@ -9,22 +9,22 @@ import { SettingsStackParamList } from '../../../utils/types';
 const SettingsStack = createNativeStackNavigator<SettingsStackParamList>();
 
 function SettingsStackScreen() {
-  return (
-    <SettingsStack.Navigator
-      screenOptions={{
-        header: ({ options, route }) => (
-          <TopBar title={getHeaderTitle(options, route.name)} />
-        ),
-      }}
-    >
-      <SettingsStack.Screen
-        name='Settings'
-        component={SettingsScreen}
-        options={{ headerShown: false }}
-      />
-      <SettingsStack.Screen name='Details' component={DetailsScreen} />
-    </SettingsStack.Navigator>
-  );
+   return (
+      <SettingsStack.Navigator
+         screenOptions={{
+            header: ({ options, route }) => (
+               <TopBar title={getHeaderTitle(options, route.name)} />
+            ),
+         }}
+      >
+         <SettingsStack.Screen
+            name='Settings'
+            component={SettingsScreen}
+            options={{ headerShown: false }}
+         />
+         <SettingsStack.Screen name='Details' component={DetailsScreen} />
+      </SettingsStack.Navigator>
+   );
 }
 
 export default SettingsStackScreen;
