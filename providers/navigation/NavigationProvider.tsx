@@ -1,18 +1,19 @@
-import * as React from 'react';
-
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
 import HomeScreen from '../../screens/Home';
 import { RootTabParamList } from '../../utils/types';
 import SettingsStackScreen from './stacks/SettingsStack';
 
-const Tab = createMaterialBottomTabNavigator<RootTabParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 function NavigationProvider() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName='Home'>
+      <Tab.Navigator
+        initialRouteName='Home'
+        screenOptions={{ headerShown: false }}
+      >
         <Tab.Screen
           name='Home'
           component={HomeScreen}
