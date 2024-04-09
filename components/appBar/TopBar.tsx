@@ -1,8 +1,15 @@
-const TopBar = () => {
+import { useNavigation } from '@react-navigation/native';
+import { Appbar } from 'react-native-paper';
+
+const TopBar = ({ title }: { title: string }) => {
+  const navigation = useNavigation();
   return (
-    <div>
-      <h1>My Top</h1>
-    </div>
+    <Appbar.Header>
+      <Appbar.BackAction onPress={() => navigation.goBack()} />
+      <Appbar.Content title={title} />
+      <Appbar.Action icon='calendar' onPress={() => {}} />
+      <Appbar.Action icon='magnify' onPress={() => {}} />
+    </Appbar.Header>
   );
 };
 export default TopBar;
