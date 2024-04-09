@@ -8,25 +8,25 @@ import SettingsStackScreen from './stacks/SettingsStack';
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 function NavigationProvider() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName='Home'
-        screenOptions={{ headerShown: false }}
-      >
-        <Tab.Screen
-          name='Home'
-          component={HomeScreen}
-          options={{ title: 'Home' }}
-        />
-        <Tab.Screen
-          name='SettingsStack'
-          component={SettingsStackScreen}
-          options={{ title: 'Settings' }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+   return (
+      <NavigationContainer>
+         <Tab.Navigator
+            initialRouteName='Home'
+            screenOptions={{ headerShown: false }}
+         >
+            <Tab.Screen
+               name='Home'
+               component={HomeScreen}
+               options={{ title: 'Home' }}
+            />
+            <Tab.Screen
+               name='SettingsStack'
+               component={SettingsStackScreen}
+               options={{ title: 'Settings' }}
+            />
+         </Tab.Navigator>
+      </NavigationContainer>
+   );
 }
 
 export default NavigationProvider;
