@@ -12,7 +12,6 @@ const I18next = ({ children }: { children: ReactNode }) => {
   const fetchLanguage = async () => {
     try {
       const storedLanguage = await AsyncStorage.getItem('language');
-      console.log('storedLanguage:', storedLanguage);
       if (storedLanguage === null) {
         const lng = getLocales()[0].languageCode;
         if (lng) {
