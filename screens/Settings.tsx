@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Appearance, useColorScheme, View } from 'react-native';
 import { Button, Text, useTheme } from 'react-native-paper';
@@ -17,7 +16,6 @@ const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
     <View
       style={{
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: theme.colors.primary,
       }}
