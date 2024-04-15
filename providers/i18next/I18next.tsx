@@ -12,48 +12,51 @@ import { LanguageContext } from '../prefrencesContext/PreferencesContext';
 const I18next = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState('en');
 
-  const languageRestart = async () => {
-    if (i18n.language === 'fa') {
-      if (!I18nManager.isRTL) {
-        I18nManager.forceRTL(true);
-        await Updates.reloadAsync();
+  const fetchLanguage = async () => {
+    const storedLanguage = await AsyncStorage.getItem('language');
+    console.log('storedLanguage', storedLanguage);
+    if (storedLanguage === null) {
+      const lng = getLocales()[0].languageCode;
+      if (lng) {
+        setLanguage(lng);
+      } else {
+        setLanguage('en');
       }
     } else {
-      if (I18nManager.isRTL) {
-        I18nManager.forceRTL(false);
-        await Updates.reloadAsync();
-      }
+      setLanguage(storedLanguage);
     }
   };
-  const fetchLanguage = async () => {
-    try {
-      const storedLanguage = await AsyncStorage.getItem('language');
-      if (storedLanguage === null) {
-        const lng = getLocales()[0].languageCode;
-        if (lng) {
-          setLanguage(lng);
-        } else {
-          setLanguage('en');
-        }
-      } else {
-        setLanguage(storedLanguage);
-      }
-      await languageRestart();
-    } catch (error) {
-      console.error('Error loading theme from AsyncStorage:', error);
-    }
-  };
+
+  // const languageRestart = async () => {
+  //   if (i18n.language === 'fa') {
+  //     if (!I18nManager.isRTL) {
+  //       I18nManager.forceRTL(true);
+  //       await Updates.reloadAsync();
+  //     }
+  //   } else {
+  //     if (I18nManager.isRTL) {
+  //       I18nManager.forceRTL(false);
+  //       await Updates.reloadAsync();
+  //     }
+  //   }
+  // };
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const changeLanguage = async (lng: string) => {
+    await i18n.changeLanguage(lng);
   };
   useEffect(() => {
-    fetchLanguage();
+    fetchLanguage().then(async () => {
+      console.log('i18n.language', i18n.language);
+      console.log('language', language);
+      if (i18n.language !== language) {
+        await changeLanguage(language);
+      }
+    });
   }, []);
-  useEffect(() => {
-    changeLanguage(language);
-  }, [i18n.language]);
+  // useEffect(() => {
+  //   changeLanguage(language);
+  // }, [i18n.language]);
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <I18nextProvider i18n={i18next}>{children}</I18nextProvider>
