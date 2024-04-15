@@ -7,9 +7,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const LanguageChanger = () => {
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = async (lng: string) => {
     i18n.changeLanguage(lng);
-    AsyncStorage.setItem('language', lng);
+    await AsyncStorage.setItem('language', lng);
   };
   return (
     <View>
