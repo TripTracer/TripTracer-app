@@ -1,18 +1,20 @@
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback, useMemo, useState } from 'react';
 import {
+  adaptNavigationTheme,
+  configureFonts,
   MD3DarkTheme,
   MD3LightTheme,
   PaperProvider,
-  adaptNavigationTheme,
-  configureFonts,
 } from 'react-native-paper';
-import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
-import { useCallback, useMemo, useState } from 'react';
+
+import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import { Vazirmatn_900Black, useFonts } from '@expo-google-fonts/vazirmatn';
-import * as SplashScreen from 'expo-splash-screen';
+
+import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -61,7 +63,7 @@ export default function ThemeProvider({
 
   const [isThemeDark, setIsThemeDark] = useState(false);
 
-  let paperTheme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
+  const paperTheme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
 
   const toggleTheme = useCallback(() => {
     return setIsThemeDark(!isThemeDark);
@@ -74,10 +76,7 @@ export default function ThemeProvider({
     }),
     [toggleTheme, isThemeDark],
   );
-  if (!fontsLoaded && !fontError) {
-    console.log('fontError: ', fontError);
-    return null;
-  } else {
+  if (fontsLoaded && fontError) {
     return (
       <PreferencesContext.Provider value={preferences}>
         <PaperProvider theme={paperTheme}>{children}</PaperProvider>

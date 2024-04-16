@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, useColorScheme, Appearance } from 'react-native';
+import { Appearance, Text, useColorScheme, View } from 'react-native';
 import { Button, useTheme } from 'react-native-paper';
+
 import ThemeChanger from '../components/settingsScreen/ThemeChanger';
 import { SettingsScreenNavigationProps } from '../utils/types';
 

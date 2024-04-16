@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, useColorScheme, Appearance } from 'react-native';
-import { Button, useTheme, Text } from 'react-native-paper';
+import { Appearance, useColorScheme, View } from 'react-native';
+import { Button, Text, useTheme } from 'react-native-paper';
+
 import { HomeScreenNavigationProps } from '../utils/types';
 
 const HomeScreen = ({ navigation }: HomeScreenNavigationProps) => {
