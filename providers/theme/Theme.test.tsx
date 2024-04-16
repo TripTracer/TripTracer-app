@@ -3,17 +3,14 @@ import {
   render,
   screen,
   waitFor,
-  fireEvent,
   renderHook,
-  act,
 } from '@testing-library/react-native';
 import '@testing-library/jest-dom';
 import '@testing-library/react-native/extend-expect';
-import { Button, Text } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 import { useContext } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
-import * as Fonts from '@expo-google-fonts/vazirmatn';
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
