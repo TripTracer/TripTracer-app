@@ -5,7 +5,7 @@ import {
   adaptNavigationTheme,
   configureFonts,
 } from 'react-native-paper';
-import { PreferencesContext } from './PreferencesContext';
+import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 import { useCallback, useMemo, useState } from 'react';
 import {
   DarkTheme as NavigationDarkTheme,

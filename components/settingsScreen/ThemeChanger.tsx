@@ -1,6 +1,6 @@
 import { useColorScheme, Appearance } from 'react-native';
 import { Switch, useTheme } from 'react-native-paper';
-import { PreferencesContext } from '../../providers/PreferencesContext';
+import { PreferencesContext } from '../../providers/prefrencesContext/PreferencesContext';
 import { useContext } from 'react';
 
 const ThemeChanger = () => {
