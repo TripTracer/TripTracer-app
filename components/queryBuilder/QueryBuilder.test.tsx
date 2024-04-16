@@ -1,6 +1,5 @@
 import { render, waitFor } from '@testing-library/react-native';
 import QueryBuilderComponent from './QueryBuilder';
-import '@testing-library/jest-dom';
 
 describe('Query Builder', () => {
   // Renders QueryBuilder component with provided fields and query props.

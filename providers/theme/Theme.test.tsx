@@ -5,8 +5,6 @@ import {
   waitFor,
   renderHook,
 } from '@testing-library/react-native';
-import '@testing-library/jest-dom';
-import '@testing-library/react-native/extend-expect';
 import { Text } from 'react-native-paper';
 import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 import { useContext } from 'react';
