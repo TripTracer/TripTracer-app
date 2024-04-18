@@ -9,3 +9,7 @@ export const LanguageContext = createContext({
   language: 'en',
   setLanguage: (language: string) => {},
 });
+export const PreferencesContext = createContext({
+  toggleTheme: () => {},
+  isThemeDark: false,
+});

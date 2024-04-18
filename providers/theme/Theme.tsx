@@ -1,11 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen';
-import React, {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { Appearance } from 'react-native';
 import {
   adaptNavigationTheme,
@@ -69,27 +63,27 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     [colorScheme, setColorScheme],
   );
 
-  useEffect(() => {
-    const fetchColorScheme = async () => {
-      try {
-        const storedColorScheme = await AsyncStorage.getItem('colorScheme');
-        console.log('storedColorScheme:', storedColorScheme);
-        if (
-          storedColorScheme === 'dark' ||
-          (storedColorScheme === null && Appearance.getColorScheme() === 'dark')
-        ) {
-          setColorScheme('dark');
-        } else {
-          setColorScheme('light');
-        }
-      } catch (error) {
-        console.error('Error loading theme from AsyncStorage:', error);
+  const fetchColorScheme = async () => {
+    try {
+      const storedColorScheme = await AsyncStorage.getItem('colorScheme');
+      console.log('storedColorScheme:', storedColorScheme);
+      if (
+        storedColorScheme === 'dark' ||
+        (storedColorScheme === null && Appearance.getColorScheme() === 'dark')
+      ) {
+        setColorScheme('dark');
+      } else {
+        setColorScheme('light');
       }
-    };
+    } catch (error) {
+      console.error('Error loading theme from AsyncStorage:', error);
+    }
+  };
+  useEffect(() => {
     fetchColorScheme();
   }, []);
 
-  if (fontsLoaded && fontError) {
+  if (fontsLoaded && !fontError) {
     const paperTheme =
       colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme;
     return (
