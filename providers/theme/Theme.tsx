@@ -1,26 +1,29 @@
+import * as SplashScreen from 'expo-splash-screen';
 import React, {
+  ReactNode,
   useCallback,
+  useEffect,
   useMemo,
   useState,
-  useEffect,
-  ReactNode,
 } from 'react';
 import { Appearance } from 'react-native';
 import {
+  adaptNavigationTheme,
+  configureFonts,
   MD3DarkTheme,
   MD3LightTheme,
   PaperProvider,
-  adaptNavigationTheme,
-  configureFonts,
 } from 'react-native-paper';
+
+import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import * as SplashScreen from 'expo-splash-screen';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ColorSchemeContext } from '../utils/PreferencesContext';
-import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
+
+import { ColorSchemeContext } from '../../utils/PreferencesContext';
+import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 
 SplashScreen.preventAutoHideAsync();
 
