@@ -11,5 +11,11 @@ export type SettingsStackParamList = {
   Details: undefined;
 };
 
-export type HomeScreenNavigationProps = NativeStackScreenProps<RootTabParamList, 'Home'>;
-export type SettingsScreenNavigationProps = NativeStackScreenProps<SettingsStackParamList, 'Settings'>;
+export type HomeScreenNavigationProps = NativeStackScreenProps<
+  RootTabParamList,
+  'Home'
+>;
+export type SettingsScreenNavigationProps = NativeStackScreenProps<
+  SettingsStackParamList,
+  'Settings'
+>;
