@@ -24,6 +24,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [fontsLoaded, fontError] = useFonts({
     Vazirmatn_900Black,
   });
+
   if (fontsLoaded || fontError) {
     SplashScreen.hideAsync();
   }
