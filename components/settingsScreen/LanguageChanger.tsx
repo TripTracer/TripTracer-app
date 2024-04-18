@@ -1,7 +1,8 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Button, Text } from 'react-native-paper';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LanguageChanger = () => {
   const { t, i18n } = useTranslation();

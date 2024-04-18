@@ -23,7 +23,6 @@ const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
       }}
     >
       <Text>Settings Screen</Text>
-
       <Text>useColorScheme2(): {colorScheme2}</Text>
       <Text>useColorScheme(): {colorScheme}</Text>
       <ThemeChanger />

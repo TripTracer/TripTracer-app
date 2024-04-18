@@ -1,10 +1,11 @@
+import { getLocales } from 'expo-localization';
 import { ReactNode, useEffect, useState } from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-import i18next from '../utils/i18next';
-import { LanguageContext } from '../utils/PreferencesContext';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getLocales } from 'expo-localization';
-import { use } from 'i18next';
+
+import i18next from '../../utils/i18next';
+import { LanguageContext } from '../prefrencesContext/PreferencesContext';
 
 const I18next = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState('en');

@@ -1,5 +1,6 @@
-import { Field, QueryBuilder, RuleGroupType } from 'react-querybuilder';
 import 'react-querybuilder/dist/query-builder.css';
+
+import { Field, QueryBuilder, RuleGroupType } from 'react-querybuilder';
 
 function QueryBuilderComponent({
   fields,
