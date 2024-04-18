@@ -4,6 +4,7 @@ export const PreferencesContext = createContext({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:providers/prefrencesContext/PreferencesContext.tsx
 <<<<<<< HEAD
 =======
@@ -29,4 +30,8 @@ export const PreferencesContext = createContext({
 >>>>>>> f5d01a8 (fix: working on dynamic dark mode)
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
+=======
+  toggleTheme: () => {},
+  isThemeDark: false,
+>>>>>>> 00e1a5a (feat: theme unit tests added)
 });
