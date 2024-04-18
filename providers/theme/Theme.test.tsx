@@ -6,6 +6,7 @@ import {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
   renderHook,
@@ -20,6 +21,8 @@ import * as SplashScreen from 'expo-splash-screen';
 >>>>>>> f46e10f (feat: theme unit tests added)
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
+=======
+>>>>>>> 00e1a5a (feat: theme unit tests added)
   fireEvent,
   renderHook,
   act,
@@ -33,12 +36,15 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Fonts from '@expo-google-fonts/vazirmatn';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 =======
 >>>>>>> f46e10f (feat: theme unit tests added)
 =======
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 >>>>>>> 1376e07 (feat: theme unit tests added)
+=======
+>>>>>>> 00e1a5a (feat: theme unit tests added)
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
