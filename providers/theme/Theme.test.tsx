@@ -2,10 +2,15 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useContext } from 'react';
 import { Text } from 'react-native-paper';
 
-import { render, renderHook, screen, waitFor } from '@testing-library/react-native';
+import {
+  render,
+  renderHook,
+  screen,
+  waitFor,
+} from '@testing-library/react-native';
 
 import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
-import ThemeProvider from './Theme';
+import ThemeProvider from './Theme.tsx';
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
