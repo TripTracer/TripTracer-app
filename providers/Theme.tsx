@@ -1,3 +1,11 @@
+import React, {
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
+import { Appearance } from 'react-native';
 import {
   MD3DarkTheme,
   MD3LightTheme,
@@ -5,34 +13,24 @@ import {
   adaptNavigationTheme,
   configureFonts,
 } from 'react-native-paper';
-import { PreferencesContext } from './PreferencesContext';
-import { useCallback, useMemo, useState } from 'react';
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
-import { Vazirmatn_900Black, useFonts } from '@expo-google-fonts/vazirmatn';
 import * as SplashScreen from 'expo-splash-screen';
-import { Appearance } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PreferencesContext } from './PreferencesContext';
+import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function ThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const colorScheme = Appearance.getColorScheme();
+const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [fontsLoaded, fontError] = useFonts({
     Vazirmatn_900Black,
   });
-
-  // console.log('fontsLoaded: ', fontsLoaded);
-  // console.log('fontError: ', fontError);
   if (fontsLoaded || fontError) {
     SplashScreen.hideAsync();
   }
-
   const fontConfig = {
     fontFamily: 'Vazirmatn_900Black',
   };
@@ -61,31 +59,44 @@ export default function ThemeProvider({
     },
   };
 
-  const [isThemeDark, setIsThemeDark] = useState(false);
-
-  let paperTheme = isThemeDark ? CombinedDarkTheme : CombinedDefaultTheme;
-
-  const toggleTheme = useCallback(() => {
-    return setIsThemeDark(!isThemeDark);
-  }, [isThemeDark]);
+  const [colorScheme, setColorScheme] = useState('light'); // Default color scheme
 
   const preferences = useMemo(
-    () => ({
-      toggleTheme,
-      isThemeDark,
-    }),
-    [toggleTheme, isThemeDark],
+    () => ({ colorScheme, setColorScheme }),
+    [colorScheme, setColorScheme],
   );
-  console.log('colorScheme: ', colorScheme);
-  console.log('preferences: ', preferences);
+
+  useEffect(() => {
+    const fetchColorScheme = async () => {
+      try {
+        const storedColorScheme = await AsyncStorage.getItem('colorScheme');
+        console.log('storedColorScheme:', storedColorScheme);
+        if (
+          storedColorScheme === 'dark' ||
+          (storedColorScheme === null && Appearance.getColorScheme() === 'dark')
+        ) {
+          setColorScheme('dark');
+        } else {
+          setColorScheme('light');
+        }
+      } catch (error) {
+        console.error('Error loading theme from AsyncStorage:', error);
+      }
+    };
+    fetchColorScheme();
+  }, []);
+
   if (!fontsLoaded && !fontError) {
-    // console.log('fontError: ', fontError);
     return null;
   } else {
+    const paperTheme =
+      colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme;
     return (
       <PreferencesContext.Provider value={preferences}>
         <PaperProvider theme={paperTheme}>{children}</PaperProvider>
       </PreferencesContext.Provider>
     );
   }
-}
+};
+
+export default ThemeProvider;
