@@ -23,7 +23,7 @@
     "@testing-library/jest-dom": "^6.4.2",
     "expo": "^50.0.14",
     "expo-font": "~11.10.3",
-    "expo-localization": "~14.8.3",
+    "expo-localization": "~14.8.4",
     "expo-splash-screen": "~0.26.4",
     "expo-status-bar": "~1.11.1",
     "expo-system-ui": "~2.9.3",

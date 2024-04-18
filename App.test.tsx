@@ -9,7 +9,7 @@ import { render, waitFor } from '@testing-library/react-native';
 import App from './App';
 import NavigationProvider from './providers/navigation/NavigationProvider';
 import QueryProvider from './providers/reactQuery/ReactQuery';
-import ThemeProvider from './providers/theme/Theme';
+import ThemeProvider from './providers/theme/Theme.tsx_old';
 
 jest.mock('./providers/reactQuery/ReactQuery', () => ({
   __esModule: true,
