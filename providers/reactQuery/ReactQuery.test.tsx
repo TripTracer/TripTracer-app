@@ -1,4 +1,5 @@
-import { render, waitFor, screen } from '@testing-library/react-native';
+import { render, screen, waitFor } from '@testing-library/react-native';
+
 import QueryProvider from './ReactQuery';
 
 describe('React Query', () => {
@@ -6,7 +7,7 @@ describe('React Query', () => {
     render(
       <QueryProvider>
         <div>Test</div>
-      </QueryProvider>
+      </QueryProvider>,
     );
     waitFor(() => {
       expect(screen.getByText('Test')).toBeInTheDocument();

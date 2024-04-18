@@ -3,7 +3,7 @@ import { SegmentedButtons } from 'react-native-paper';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { ColorSchemeContext } from '../../utils/PreferencesContext';
+import { ColorSchemeContext } from '../../providers/prefrencesContext/PreferencesContext';
 
 const ThemeChanger = () => {
   const { colorScheme, setColorScheme } = useContext(ColorSchemeContext);

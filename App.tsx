@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 
 import { StatusBar } from 'expo-status-bar';
 
-import I18next from './providers/I18next';
+import I18next from './providers/i18next/I18Next';
 import NavigationProvider from './providers/navigation/NavigationProvider';
 import QueryProvider from './providers/reactQuery/ReactQuery';
 import ThemeProvider from './providers/theme/Theme';

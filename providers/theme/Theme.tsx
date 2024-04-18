@@ -1,5 +1,11 @@
 import * as SplashScreen from 'expo-splash-screen';
-import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import React, {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { Appearance } from 'react-native';
 import {
   adaptNavigationTheme,
@@ -16,7 +22,7 @@ import {
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
 
-import { ColorSchemeContext } from '../../utils/PreferencesContext';
+import { ColorSchemeContext } from '../prefrencesContext/PreferencesContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -24,10 +30,10 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [fontsLoaded, fontError] = useFonts({
     Vazirmatn_900Black,
   });
-
   if (fontsLoaded || fontError) {
     SplashScreen.hideAsync();
   }
+
   const fontConfig = {
     fontFamily: 'Vazirmatn_900Black',
   };
@@ -56,7 +62,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     },
   };
 
-  const [colorScheme, setColorScheme] = useState('light');
+  const [colorScheme, setColorScheme] = useState('light'); // Default color scheme
 
   const preferences = useMemo(
     () => ({ colorScheme, setColorScheme }),
