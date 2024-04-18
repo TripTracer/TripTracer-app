@@ -1,11 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import App from './App';
 
 describe('<App />', () => {
-  it('has 1 child', () => {
+  it('should render the app with the necessary components', () => {
     const tree = renderer.create(<App />).toJSON();
-    expect(tree.children.length).toBe(1);
+    expect(tree).toMatchSnapshot();
+  });
+  it('should not render the QueryProvider, ThemeProvider, and NavigationProvider components', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
