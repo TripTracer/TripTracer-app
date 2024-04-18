@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 export const PreferencesContext = createContext({
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:providers/prefrencesContext/PreferencesContext.tsx
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -39,10 +40,14 @@ export const PreferencesContext = createContext({
   isThemeDark: false,
 >>>>>>> f46e10f (feat: theme unit tests added)
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7adf7f1 (fix: working on dynamic dark mode)
 =======
   colorScheme: 'system',
   setColorScheme: (colorScheme: string) => {},
 >>>>>>> f5d01a8 (fix: working on dynamic dark mode)
+<<<<<<< HEAD
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
 =======
@@ -59,4 +64,6 @@ export const PreferencesContext = createContext({
 >>>>>>> 64a70fc (fix: working on dynamic dark mode)
 =======
 >>>>>>> 9851c96 (feat: theme unit tests added)
+=======
+>>>>>>> 7adf7f1 (fix: working on dynamic dark mode)
 });
