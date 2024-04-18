@@ -19,7 +19,9 @@ import {
 } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { PreferencesContext } from './PreferencesContext';
+import {
+  ColorSchemeContext,
+} from '../utils/PreferencesContext';
 import { useFonts, Vazirmatn_900Black } from '@expo-google-fonts/vazirmatn';
 
 SplashScreen.preventAutoHideAsync();
@@ -92,9 +94,9 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const paperTheme =
       colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme;
     return (
-      <PreferencesContext.Provider value={preferences}>
+      <ColorSchemeContext.Provider value={preferences}>
         <PaperProvider theme={paperTheme}>{children}</PaperProvider>
-      </PreferencesContext.Provider>
+      </ColorSchemeContext.Provider>
     );
   }
 };
