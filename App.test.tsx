@@ -4,12 +4,15 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 =======
 >>>>>>> f46e10f (feat: theme unit tests added)
 =======
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 >>>>>>> 1376e07 (feat: theme unit tests added)
+=======
+>>>>>>> 00e1a5a (feat: theme unit tests added)
 import App from './App';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react-native';
@@ -39,6 +42,7 @@ jest.mock('expo-status-bar', () => ({
   StatusBar: jest.fn(),
 }));
 describe('<App />', () => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -79,5 +83,14 @@ describe('<App />', () => {
 >>>>>>> f46e10f (feat: theme unit tests added)
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
+=======
+  it('should render the app with the necessary components', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it('should not render the QueryProvider, ThemeProvider, and NavigationProvider components', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+>>>>>>> 00e1a5a (feat: theme unit tests added)
   });
 });
