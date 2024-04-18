@@ -1,11 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen';
-import React, {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { Appearance } from 'react-native';
 import {
   adaptNavigationTheme,
@@ -23,7 +17,6 @@ import {
 } from '@react-navigation/native';
 
 import { ColorSchemeContext } from '../../utils/PreferencesContext';
-import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -63,7 +56,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     },
   };
 
-  const [colorScheme, setColorScheme] = useState('light'); // Default color scheme
+  const [colorScheme, setColorScheme] = useState('light');
 
   const preferences = useMemo(
     () => ({ colorScheme, setColorScheme }),
@@ -90,9 +83,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     fetchColorScheme();
   }, []);
 
-  if (!fontsLoaded && !fontError) {
-    return null;
-  } else {
+  if (fontsLoaded && fontError) {
     const paperTheme =
       colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme;
     return (
