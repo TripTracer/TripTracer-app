@@ -10,7 +10,7 @@ import {
 } from '@testing-library/react-native';
 
 import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
-import ThemeProvider from './Theme.tsx';
+import ThemeProvider from './Theme';
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
