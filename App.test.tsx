@@ -1,4 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+import renderer from 'react-test-renderer';
+>>>>>>> 07c3b61 (feat: theme unit tests added)
 import App from './App';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react-native';
@@ -28,6 +32,7 @@ jest.mock('expo-status-bar', () => ({
   StatusBar: jest.fn(),
 }));
 describe('<App />', () => {
+<<<<<<< HEAD
   it('should render the app with necessary components', () => {
     render(<App />);
     waitFor(() => {
@@ -42,5 +47,14 @@ describe('<App />', () => {
     waitFor(() => {
       expect(App).not.toHaveBeenCalled();
     });
+=======
+  it('should render the app with the necessary components', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it('should not render the QueryProvider, ThemeProvider, and NavigationProvider components', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+>>>>>>> 07c3b61 (feat: theme unit tests added)
   });
 });
