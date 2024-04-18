@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
 export const PreferencesContext = createContext({
-  toggleTheme: () => {},
-  isThemeDark: false,
+  colorScheme: 'system',
+  setColorScheme: (colorScheme: string) => {},
 });
