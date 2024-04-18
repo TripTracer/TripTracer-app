@@ -6,6 +6,7 @@ import renderer from 'react-test-renderer';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 =======
 >>>>>>> f46e10f (feat: theme unit tests added)
@@ -17,6 +18,11 @@ import renderer from 'react-test-renderer';
 =======
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 >>>>>>> b5a2cfb (feat: theme unit tests added)
+=======
+>>>>>>> 07c3b61 (feat: theme unit tests added)
+=======
+>>>>>>> f46e10f (feat: theme unit tests added)
+>>>>>>> 9851c96 (feat: theme unit tests added)
 import App from './App';
 import '@testing-library/jest-dom';
 import { render, waitFor } from '@testing-library/react-native';
@@ -51,10 +57,13 @@ describe('<App />', () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
 =======
 >>>>>>> b5a2cfb (feat: theme unit tests added)
+=======
+>>>>>>> 9851c96 (feat: theme unit tests added)
   it('should render the app with necessary components', () => {
     render(<App />);
     waitFor(() => {
@@ -80,6 +89,9 @@ describe('<App />', () => {
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9851c96 (feat: theme unit tests added)
 =======
   it('should render the app with the necessary components', () => {
     const tree = renderer.create(<App />).toJSON();
@@ -89,6 +101,7 @@ describe('<App />', () => {
     const tree = renderer.create(<App />).toJSON();
     expect(tree).toMatchSnapshot();
 >>>>>>> f46e10f (feat: theme unit tests added)
+<<<<<<< HEAD
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
 =======
@@ -102,5 +115,7 @@ describe('<App />', () => {
 >>>>>>> 00e1a5a (feat: theme unit tests added)
 =======
 >>>>>>> b5a2cfb (feat: theme unit tests added)
+=======
+>>>>>>> 9851c96 (feat: theme unit tests added)
   });
 });
