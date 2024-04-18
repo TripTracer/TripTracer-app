@@ -3,7 +3,9 @@ import { createContext } from 'react';
 export const PreferencesContext = createContext({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:providers/prefrencesContext/PreferencesContext.tsx
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -16,6 +18,10 @@ export const PreferencesContext = createContext({
 >>>>>>> 1376e07 (feat: theme unit tests added)
 =======
 >>>>>>> b5a2cfb (feat: theme unit tests added)
+=======
+=======
+>>>>>>> 1376e07 (feat: theme unit tests added)
+>>>>>>> 9789212 (feat: theme unit tests added)
   colorScheme: 'system',
   setColorScheme: (colorScheme: string) => {},
 =======
@@ -25,8 +31,11 @@ export const PreferencesContext = createContext({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 64a70fc (fix: working on dynamic dark mode)
+=======
+>>>>>>> 9789212 (feat: theme unit tests added)
 =======
   colorScheme: 'system',
   setColorScheme: (colorScheme: string) => {},
@@ -48,6 +57,7 @@ export const PreferencesContext = createContext({
   setColorScheme: (colorScheme: string) => {},
 >>>>>>> f5d01a8 (fix: working on dynamic dark mode)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 1376e07 (feat: theme unit tests added)
 =======
@@ -66,4 +76,8 @@ export const PreferencesContext = createContext({
 >>>>>>> 9851c96 (feat: theme unit tests added)
 =======
 >>>>>>> 7adf7f1 (fix: working on dynamic dark mode)
+=======
+=======
+>>>>>>> 1376e07 (feat: theme unit tests added)
+>>>>>>> 9789212 (feat: theme unit tests added)
 });
