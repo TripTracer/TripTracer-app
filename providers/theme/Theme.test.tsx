@@ -1,91 +1,11 @@
-import ThemeProvider from './Theme';
-import {
-  render,
-  screen,
-  waitFor,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1376e07 (feat: theme unit tests added)
-=======
->>>>>>> b5a2cfb (feat: theme unit tests added)
-=======
->>>>>>> 9851c96 (feat: theme unit tests added)
-=======
-=======
->>>>>>> 1376e07 (feat: theme unit tests added)
->>>>>>> 9789212 (feat: theme unit tests added)
-  renderHook,
-} from '@testing-library/react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import { useContext } from 'react';
 import { Text } from 'react-native-paper';
+
+import { render, renderHook, screen, waitFor } from '@testing-library/react-native';
+
 import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
-import { useContext } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9789212 (feat: theme unit tests added)
-=======
->>>>>>> f46e10f (feat: theme unit tests added)
-=======
->>>>>>> 1376e07 (feat: theme unit tests added)
-<<<<<<< HEAD
-=======
->>>>>>> 00e1a5a (feat: theme unit tests added)
-=======
->>>>>>> b5a2cfb (feat: theme unit tests added)
-=======
-=======
->>>>>>> f46e10f (feat: theme unit tests added)
->>>>>>> 9851c96 (feat: theme unit tests added)
-=======
->>>>>>> 9789212 (feat: theme unit tests added)
-  fireEvent,
-  renderHook,
-  act,
-} from '@testing-library/react-native';
-import '@testing-library/jest-dom';
-import '@testing-library/react-native/extend-expect';
-import { Button, Text } from 'react-native-paper';
-import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
-import { useContext } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Fonts from '@expo-google-fonts/vazirmatn';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9789212 (feat: theme unit tests added)
->>>>>>> 07c3b61 (feat: theme unit tests added)
-=======
->>>>>>> f46e10f (feat: theme unit tests added)
-=======
->>>>>>> 07c3b61 (feat: theme unit tests added)
->>>>>>> 1376e07 (feat: theme unit tests added)
-<<<<<<< HEAD
-=======
->>>>>>> 00e1a5a (feat: theme unit tests added)
-=======
->>>>>>> 07c3b61 (feat: theme unit tests added)
->>>>>>> b5a2cfb (feat: theme unit tests added)
-=======
->>>>>>> 07c3b61 (feat: theme unit tests added)
-=======
->>>>>>> f46e10f (feat: theme unit tests added)
->>>>>>> 9851c96 (feat: theme unit tests added)
-=======
->>>>>>> 9789212 (feat: theme unit tests added)
+import ThemeProvider from './Theme';
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
