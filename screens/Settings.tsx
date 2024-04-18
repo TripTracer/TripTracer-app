@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, useColorScheme, Appearance } from 'react-native';
-import { Button, useTheme, Text } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
+import { Appearance, useColorScheme, View } from 'react-native';
+import { Button, Text, useTheme } from 'react-native-paper';
+
+import LanguageChanger from '../components/settingsScreen/LanguageChanger';
 import ThemeChanger from '../components/settingsScreen/ThemeChanger';
 import { SettingsScreenNavigationProps } from '../utils/types';
-import { useTranslation } from 'react-i18next';
-import LanguageChanger from '../components/settingsScreen/LanguageChanger';
+
 const SettingsScreen = ({ navigation }: SettingsScreenNavigationProps) => {
   const colorScheme2 = Appearance.getColorScheme();
   const colorScheme = useColorScheme();

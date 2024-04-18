@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import DetailsScreen from '../../../screens/Details';
 import SettingsScreen from '../../../screens/Settings';
 import { SettingsStackParamList } from '../../../utils/types';
