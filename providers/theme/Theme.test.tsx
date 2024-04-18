@@ -5,6 +5,9 @@ import {
   waitFor,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1376e07 (feat: theme unit tests added)
   renderHook,
 } from '@testing-library/react-native';
 import { Text } from 'react-native-paper';
@@ -12,8 +15,11 @@ import { PreferencesContext } from '../prefrencesContext/PreferencesContext';
 import { useContext } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> f46e10f (feat: theme unit tests added)
+=======
+>>>>>>> 1376e07 (feat: theme unit tests added)
   fireEvent,
   renderHook,
   act,
@@ -26,9 +32,13 @@ import { useContext } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Fonts from '@expo-google-fonts/vazirmatn';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 07c3b61 (feat: theme unit tests added)
 =======
 >>>>>>> f46e10f (feat: theme unit tests added)
+=======
+>>>>>>> 07c3b61 (feat: theme unit tests added)
+>>>>>>> 1376e07 (feat: theme unit tests added)
 
 describe('ThemeProvider Component', () => {
   it('should render children', () => {
