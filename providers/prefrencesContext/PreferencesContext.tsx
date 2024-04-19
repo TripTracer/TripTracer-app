@@ -9,3 +9,8 @@ export const LanguageContext = createContext({
   language: 'en',
   setLanguage: (language: string) => {},
 });
+
+export const DirectionContext = createContext({
+  direction: 'ltr',
+  setDirection: (direction: string) => {},
+});
