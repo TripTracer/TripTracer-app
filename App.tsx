@@ -8,14 +8,14 @@ import QueryProvider from './providers/reactQuery/ReactQuery';
 import ThemeProvider from './providers/theme/Theme';
 
 export default function App() {
-  return (
-    <I18next>
-      <QueryProvider>
-        <ThemeProvider>
-          <NavigationProvider />
-          <StatusBar style='auto' />
-        </ThemeProvider>
-      </QueryProvider>
-    </I18next>
-  );
+   return (
+      <I18next>
+         <QueryProvider>
+            <ThemeProvider>
+               <NavigationProvider />
+               <StatusBar style='auto' />
+            </ThemeProvider>
+         </QueryProvider>
+      </I18next>
+   );
 }
