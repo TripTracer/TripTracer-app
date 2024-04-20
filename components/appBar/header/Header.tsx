@@ -3,18 +3,20 @@ import { Appbar } from 'react-native-paper';
 
 import { HeaderProps } from '../../../utils/types';
 
-const Header = forwardRef(function Header({
-  children,
-  dark,
-  statusBarHeight,
-  mode,
-  elevated,
-  theme,
-  style,
-  testID,
-  ref,
-  ...rest
-}: HeaderProps) {
+const Header = forwardRef<any, HeaderProps>(function Header(
+  {
+    children,
+    dark,
+    statusBarHeight,
+    mode,
+    elevated,
+    theme,
+    style,
+    testID,
+    ...rest
+  }: HeaderProps,
+  ref: React.Ref<any> | null,
+) {
   return (
     <Appbar.Header
       dark={dark}
