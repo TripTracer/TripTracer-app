@@ -1,15 +1,54 @@
-import { PreferencesContext } from './PreferencesContext';
+import React, { useContext } from 'react';
 
-describe('PreferencesContext', () => {
-  it('should create a context object with default values', () => {
-    const context = PreferencesContext._currentValue;
-    expect(context).toBeDefined();
-    expect(typeof context.toggleTheme).toBe('function');
-    expect(context.isThemeDark).toBe(false);
-  });
-  it('should throw an error if no default value is provided', () => {
-    expect(() => {
-      code_under_test.PreferencesContext();
-    }).toThrow();
-  });
+import { act, render, waitFor } from '@testing-library/react-native';
+
+import { ColorSchemeContext, LanguageContext } from './PreferencesContext'; // Update path to your file
+
+// Dummy component to test useContext
+const DummyComponent = () => {
+   const colorSchemeContext = useContext(ColorSchemeContext);
+   const languageContext = useContext(LanguageContext);
+
+   return (
+      <div>
+         <span data-testid='colorScheme'>
+            {colorSchemeContext?.colorScheme}
+         </span>
+         <button onClick={() => colorSchemeContext.setColorScheme('dark')}>
+            Change Color Scheme
+         </button>
+         <span data-testid='language'>{languageContext?.language}</span>
+         <button onClick={() => languageContext.setLanguage('fr')}>
+            Change Language
+         </button>
+      </div>
+   );
+};
+
+describe('ColorSchemeContext', () => {
+   it('should provide default color scheme context', () => {
+      const { getByTestId } = render(
+         <ColorSchemeContext.Provider>
+            <DummyComponent />
+         </ColorSchemeContext.Provider>,
+      );
+      waitFor(() => {
+         expect(getByTestId('colorScheme').textContent).toBe('system');
+      });
+   });
+
+   it('should update color scheme context', () => {
+      const { getByTestId } = render(
+         <ColorSchemeContext.Provider>
+            <DummyComponent />
+         </ColorSchemeContext.Provider>,
+      );
+      waitFor(() => {
+         act(() => {
+            getByTestId('colorScheme').previousSibling.click();
+         });
+
+         expect(getByTestId('colorScheme').textContent).toBe('dark');
+      });
+   });
 });
