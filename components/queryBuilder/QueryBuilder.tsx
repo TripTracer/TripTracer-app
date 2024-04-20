@@ -12,7 +12,11 @@ function QueryBuilderComponent({
   setQuery: (query: RuleGroupType) => void;
 }) {
   return (
-    <QueryBuilder fields={fields} query={query} onQueryChange={setQuery} />
+    <QueryBuilder
+      fields={fields}
+      query={query}
+      onQueryChange={setQuery}
+    />
   );
 }
 export default QueryBuilderComponent;
