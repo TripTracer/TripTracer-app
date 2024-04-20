@@ -3,18 +3,20 @@ import { Avatar } from 'react-native-paper';
 
 import { AvatarTextProps } from '../../../utils/types';
 
-const AvatarText = forwardRef(function AvatarText({
-  label,
-  size,
-  color,
-  style,
-  labelStyle,
-  maxFontSizeMultiplier,
-  theme,
-  testID,
-  ref,
-  ...rest
-}: AvatarTextProps) {
+const AvatarText = forwardRef<any, AvatarTextProps>(function AvatarText(
+  {
+    label,
+    size,
+    color,
+    style,
+    labelStyle,
+    maxFontSizeMultiplier,
+    theme,
+    testID,
+    ...rest
+  }: AvatarTextProps,
+  ref: React.Ref<any> | null,
+) {
   return (
     <Avatar.Text
       label={label}

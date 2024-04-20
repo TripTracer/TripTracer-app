@@ -1,21 +1,26 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react'; // Added React import
+import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { ActionProps } from '../../../utils/types';
 
-const Action = forwardRef(function Action({
-  color,
-  rippleColor,
-  icon,
-  size,
-  disabled,
-  accessibilityLabel,
-  onPress,
-  isLeading,
-  style,
-  ref,
-  theme,
-}: ActionProps) {
+const Action = forwardRef<View, ActionProps>(function Action(
+  {
+    color,
+    rippleColor,
+    icon,
+    size,
+    disabled,
+    accessibilityLabel,
+    onPress,
+    isLeading,
+    style,
+    theme,
+    testID,
+    ...rest
+  }: ActionProps,
+  ref: React.Ref<View> | null,
+) {
   return (
     <Appbar.Action
       color={color}
@@ -29,7 +34,10 @@ const Action = forwardRef(function Action({
       style={style}
       ref={ref}
       theme={theme}
+      testID={testID}
+      {...rest}
     />
   );
 });
+
 export default Action;
