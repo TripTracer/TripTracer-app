@@ -14,10 +14,16 @@ const LanguageChanger = () => {
   return (
     <View>
       <Text>Language Changer</Text>
-      <Button mode='contained' onPress={() => changeLanguage('fa')}>
+      <Button
+        mode='contained'
+        onPress={() => changeLanguage('fa')}
+      >
         fa
       </Button>
-      <Button mode='contained' onPress={() => changeLanguage('en')}>
+      <Button
+        mode='contained'
+        onPress={() => changeLanguage('en')}
+      >
         en
       </Button>
     </View>
