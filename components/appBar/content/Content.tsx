@@ -3,20 +3,22 @@ import { Appbar } from 'react-native-paper';
 
 import { ContentProps } from '../../../utils/types';
 
-const Content = forwardRef(function Content({
-  title,
-  titleStyle,
-  titleRef,
-  onPress,
-  disabled,
-  color,
-  titleMaxFontSizeMultiplier,
-  style,
-  theme,
-  testID,
-  ref,
-  ...rest
-}: ContentProps) {
+const Content = forwardRef<any, ContentProps>(function Content(
+  {
+    title,
+    titleStyle,
+    titleRef,
+    onPress,
+    disabled,
+    color,
+    titleMaxFontSizeMultiplier,
+    style,
+    theme,
+    testID,
+    ...rest
+  }: ContentProps,
+  ref: React.Ref<any> | null,
+) {
   return (
     <Appbar.Content
       title={title}

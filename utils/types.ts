@@ -7,7 +7,6 @@ import {
   ImageSourcePropType,
   StyleProp,
   TextStyle,
-  View,
   ViewStyle,
 } from 'react-native';
 import { IconSource } from 'react-native-paper/lib/typescript/components/Icon';
@@ -50,7 +49,6 @@ export type AppBarProps = {
   theme?: ThemeProp;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   testID?: string;
-  ref?: React.Ref<any>;
 };
 
 export type ActionProps = {
@@ -63,8 +61,8 @@ export type ActionProps = {
   onPress?: () => void;
   isLeading?: boolean;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
-  ref?: React.RefObject<View>;
   theme?: ThemeProp;
+  testID?: string;
 };
 
 export type BackActionProps = {
@@ -74,7 +72,7 @@ export type BackActionProps = {
   accessibilityLabel?: string;
   onPress?: (e: GestureResponderEvent) => void;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
-  ref?: React.RefObject<View>;
+  testID?: string;
 };
 
 export type ContentProps = {
@@ -88,7 +86,6 @@ export type ContentProps = {
   style?: StyleProp<ViewStyle>;
   theme?: ThemeProp;
   testID?: string;
-  ref: React.Ref<any>;
 };
 export type HeaderProps = {
   children: ReactNode;
@@ -99,7 +96,6 @@ export type HeaderProps = {
   theme?: ThemeProp;
   style?: Animated.WithAnimatedValue<StyleProp<ViewStyle>>;
   testID?: string;
-  ref?: React.Ref<any>;
 };
 
 export type AvatarIconProps = {
@@ -109,7 +105,6 @@ export type AvatarIconProps = {
   style?: StyleProp<ViewStyle>;
   theme?: ThemeProp;
   testID?: string;
-  ref?: React.Ref<any>;
 };
 
 export type AvatarImageProps = {
@@ -124,7 +119,6 @@ export type AvatarImageProps = {
   onProgress?: ImageProps['onProgress'];
   theme?: ThemeProp;
   testID?: string;
-  ref?: React.Ref<any>;
 };
 
 export type AvatarTextProps = {
@@ -136,7 +130,6 @@ export type AvatarTextProps = {
   maxFontSizeMultiplier?: number;
   theme?: ThemeProp;
   testID?: string;
-  ref?: React.Ref<any>;
 };
 export type BadgeProps = {
   visible?: boolean;
@@ -145,5 +138,4 @@ export type BadgeProps = {
   style?: StyleProp<TextStyle>;
   theme?: ThemeProp;
   testID?: string;
-  ref?: React.RefObject<typeof Animated.Text>;
 };

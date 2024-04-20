@@ -3,21 +3,23 @@ import { Avatar } from 'react-native-paper';
 
 import { AvatarImageProps } from '../../../utils/types';
 
-const AvatarImage = forwardRef(function AvatarImage({
-  source,
-  size,
-  style,
-  onError,
-  onLayout,
-  onLoad,
-  onLoadEnd,
-  onLoadStart,
-  onProgress,
-  theme,
-  testID,
-  ref,
-  ...rest
-}: AvatarImageProps) {
+const AvatarImage = forwardRef<any, AvatarImageProps>(function AvatarImage(
+  {
+    source,
+    size,
+    style,
+    onError,
+    onLayout,
+    onLoad,
+    onLoadEnd,
+    onLoadStart,
+    onProgress,
+    theme,
+    testID,
+    ...rest
+  }: AvatarImageProps,
+  ref: React.Ref<any> | null,
+) {
   return (
     <Avatar.Image
       source={source}
