@@ -10,9 +10,9 @@ const config: Config = {
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)',
   ],
-  transform: {
-    '^.+\\.tsx?$': 'babel-jest',
-  },
+  // transform: {
+  //   '^.+\\.tsx?$': 'babel-jest',
+  // },
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
