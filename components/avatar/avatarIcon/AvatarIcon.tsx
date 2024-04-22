@@ -1,14 +1,15 @@
 import { forwardRef } from 'react';
 import { Avatar } from 'react-native-paper';
 
-import { AvatarIconProps } from '../../../utils/types';
+import { iAvatarIconProps } from '../../../utils/types/components/avatar';
 
-const AvatarIcon = forwardRef<any, AvatarIconProps>(function AvatarIcon(
-  { icon, size, color, style, theme, testID, ...rest }: AvatarIconProps,
+const AvatarIcon = forwardRef<any, iAvatarIconProps>(function AvatarIcon(
+  { id, icon, size, color, style, theme, testID, ...rest }: iAvatarIconProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Avatar.Icon
+      id={id}
       icon={icon}
       size={size}
       color={color}

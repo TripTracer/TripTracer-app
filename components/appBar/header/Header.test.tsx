@@ -26,7 +26,7 @@ describe('Header', () => {
         <Header
           dark={true}
           statusBarHeight={20}
-          mode='outlined'
+          mode='small'
           elevated={false}
           theme={{ colors: { primary: 'blue' } }}
           style={{ backgroundColor: 'red' }}
@@ -40,7 +40,7 @@ describe('Header', () => {
       const header = getByTestId('test-header');
       expect(header.props.dark).toBe(true);
       expect(header.props.statusBarHeight).toBe(20);
-      expect(header.props.mode).toBe('outlined');
+      expect(header.props.mode).toBe('small');
       expect(header.props.elevated).toBe(false);
       expect(header.props.theme.colors.primary).toBe('blue');
       expect(header.props.style.backgroundColor).toBe('red');

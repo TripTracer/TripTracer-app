@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import { Appbar } from 'react-native-paper';
 
-import { ContentProps } from '../../../utils/types';
+import { iContentProps } from '../../../utils/types/components/appBar';
 
-const Content = forwardRef<any, ContentProps>(function Content(
+const Content = forwardRef<any, iContentProps>(function Content(
   {
+    id,
     title,
     titleStyle,
     titleRef,
@@ -16,11 +17,12 @@ const Content = forwardRef<any, ContentProps>(function Content(
     theme,
     testID,
     ...rest
-  }: ContentProps,
+  }: iContentProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Appbar.Content
+      id={id}
       title={title}
       titleStyle={titleStyle}
       titleRef={titleRef}
