@@ -99,7 +99,6 @@ const config: Config = {
     // Don't remove or edit this line. It handles dependency loading issues in test files that in next.js it's handled by @
     '^@/types/(.*)$': '<rootDir>/$1',
     '\\.(css|less|scss|sass)$': '<rootDir>/__mocks__/styleMock.js',
-
   },
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
