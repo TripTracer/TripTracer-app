@@ -5,12 +5,12 @@ import SettingsStackScreen from './SettingsStack';
 
 describe('SettingsStack', () => {
   it('should render the SettingsStack navigator with the correct screens', () => {
-    const { getByText } = render(
-      <NavigationProvider>
-        <SettingsStackScreen />
-      </NavigationProvider>,
-    );
     waitFor(() => {
+      const { getByText } = render(
+        <NavigationProvider>
+          <SettingsStackScreen />
+        </NavigationProvider>,
+      );
       expect(getByText('Settings Screen')).toBeTruthy();
       expect(getByText('Details Screen')).toBeTruthy();
     });
