@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import { Avatar } from 'react-native-paper';
 
-import { AvatarImageProps } from '../../../utils/types';
+import { iAvatarImageProps } from '../../../utils/types/components/avatar';
 
-const AvatarImage = forwardRef<any, AvatarImageProps>(function AvatarImage(
+const AvatarImage = forwardRef<any, iAvatarImageProps>(function AvatarImage(
   {
+    id,
     source,
     size,
     style,
@@ -17,11 +18,12 @@ const AvatarImage = forwardRef<any, AvatarImageProps>(function AvatarImage(
     theme,
     testID,
     ...rest
-  }: AvatarImageProps,
+  }: iAvatarImageProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Avatar.Image
+      id={id}
       source={source}
       size={size}
       style={style}

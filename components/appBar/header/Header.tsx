@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import { Appbar } from 'react-native-paper';
 
-import { HeaderProps } from '../../../utils/types';
+import { iHeaderProps } from '../../../utils/types/components/appBar';
 
-const Header = forwardRef<any, HeaderProps>(function Header(
+const Header = forwardRef<any, iHeaderProps>(function Header(
   {
+    id,
     children,
     dark,
     statusBarHeight,
@@ -14,11 +15,12 @@ const Header = forwardRef<any, HeaderProps>(function Header(
     style,
     testID,
     ...rest
-  }: HeaderProps,
+  }: iHeaderProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Appbar.Header
+      id={id}
       dark={dark}
       statusBarHeight={statusBarHeight}
       mode={mode}

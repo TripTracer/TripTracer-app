@@ -2,10 +2,11 @@ import { forwardRef } from 'react';
 import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
-import { BackActionProps } from '../../../utils/types';
+import { iBackActionProps } from '../../../utils/types/components/appBar';
 
-const BackAction = forwardRef<View, BackActionProps>(function BackAction(
+const BackAction = forwardRef<View, iBackActionProps>(function BackAction(
   {
+    id,
     color,
     size,
     disabled,
@@ -14,11 +15,12 @@ const BackAction = forwardRef<View, BackActionProps>(function BackAction(
     style,
     testID,
     ...rest
-  }: BackActionProps,
+  }: iBackActionProps,
   ref: React.Ref<View> | React.RefObject<View> | null,
 ) {
   return (
     <Appbar.BackAction
+      id={id}
       color={color}
       size={size}
       disabled={disabled}
