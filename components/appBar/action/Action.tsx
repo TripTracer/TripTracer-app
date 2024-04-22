@@ -2,10 +2,11 @@ import React, { forwardRef } from 'react'; // Added React import
 import { View } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
-import { ActionProps } from '../../../utils/types';
+import { iActionProps } from '../../../utils/types/components/appBar';
 
-const Action = forwardRef<View, ActionProps>(function Action(
+const Action = forwardRef<View, iActionProps>(function Action(
   {
+    id,
     color,
     rippleColor,
     icon,
@@ -18,11 +19,12 @@ const Action = forwardRef<View, ActionProps>(function Action(
     theme,
     testID,
     ...rest
-  }: ActionProps,
+  }: iActionProps,
   ref: React.Ref<View> | null,
 ) {
   return (
     <Appbar.Action
+      id={id}
       color={color}
       rippleColor={rippleColor}
       icon={icon}

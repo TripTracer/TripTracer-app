@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import { Appbar } from 'react-native-paper';
 
-import { AppBarProps } from '../../utils/types';
+import { iAppBarProps } from '../../utils/types/components/appBar';
 
-const AppBar = forwardRef<any, AppBarProps>(function AppBar(
+const AppBar = forwardRef<any, iAppBarProps>(function AppBar(
   {
+    id,
     children,
     dark,
     mode,
@@ -14,11 +15,12 @@ const AppBar = forwardRef<any, AppBarProps>(function AppBar(
     style,
     testID,
     ...rest
-  }: AppBarProps,
+  }: iAppBarProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Appbar
+      id={id}
       dark={dark}
       mode={mode}
       elevated={elevated}
