@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import { Avatar } from 'react-native-paper';
 
-import { AvatarTextProps } from '../../../utils/types';
+import { iAvatarTextProps } from '../../../utils/types/components/avatar';
 
-const AvatarText = forwardRef<any, AvatarTextProps>(function AvatarText(
+const AvatarText = forwardRef<any, iAvatarTextProps>(function AvatarText(
   {
+    id,
     label,
     size,
     color,
@@ -14,11 +15,12 @@ const AvatarText = forwardRef<any, AvatarTextProps>(function AvatarText(
     theme,
     testID,
     ...rest
-  }: AvatarTextProps,
+  }: iAvatarTextProps,
   ref: React.Ref<any> | null,
 ) {
   return (
     <Avatar.Text
+      id={id}
       label={label}
       size={size}
       color={color}
