@@ -1,3 +1,7 @@
+import 'react-native-gesture-handler';
+import 'react-native-reanimated';
+import 'setimmediate';
+
 import { render, waitFor } from '@testing-library/react-native';
 
 import NavigationProvider from '../NavigationProvider';
